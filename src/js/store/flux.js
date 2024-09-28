@@ -15,18 +15,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			contactos: [
 				{
-					"name": "jaime",
-					"phone": "5552114546",
+					"name": " ",
+					"phone": " ",
 					
 				},
 				{
-					"name": "jaime",
-					"phone": "5552114546",
+					"name": "  ",
+					"phone": " ",
 					
 				},
 				{
-					"name": "jaime",
-					"phone": "5552114546",
+					"name": " ",
+					"phone": " ",
 					
 				}
 			]
@@ -41,12 +41,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				fetch('https://playground.4geeks.com/contact/agendas/JaimeAgenda')
 				.then((response) => response.json())
-				.then((data)=> {
+				.then((data)=> 
+				{
+
 					console.log(data.contacts);
-					setstore({contactos: data.contacts });
-				})
+					setStore({contactos: data.contacts });
+				}
+				);
 				
-				.catch((error) => console.error(error));
+			
 			},
 			 deletecontact: (indextodelete) => {
 				console.log('eliminar contacto' + indextodelete )
@@ -66,7 +69,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 
 				//reset the global store
-				//setStore({ demo: demo });
+				setStore({ demo: demo });
 			}
 		}
 	};
