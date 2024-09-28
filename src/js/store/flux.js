@@ -3,7 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			demo: [
 				{
-					title: "FIRST",
+					title: "hola",
 					background: "white",
 					initial: "white"
 				},
@@ -11,6 +11,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 					title: "SECOND",
 					background: "white",
 					initial: "white"
+				}
+			],
+			contactos: [
+				{
+					"name": "jaime",
+					"phone": "5552114546",
+					
+				},
+				{
+					"name": "jaime",
+					"phone": "5552114546",
+					
+				},
+				{
+					"name": "jaime",
+					"phone": "5552114546",
+					
 				}
 			]
 		},
@@ -20,10 +37,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().changeColor(0, "green");
 			},
 			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+				console.log('llamando al api')
+
+				fetch('https://playground.4geeks.com/contact/agendas/JaimeAgenda')
+				.then((response) => response.json())
+				.then((data)=> {
+					console.log(data.contacts);
+					setstore({contactos: data.contacts });
+				})
+				
+				.catch((error) => console.error(error));
 			},
+			 deletecontact: (indextodelete) => {
+				console.log('eliminar contacto' + indextodelete )
+				const store= getStore();
+				setStore({contactos: store.contactos.filter((contact,index)=>index !=indextodelete)})
+			},
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
@@ -36,7 +66,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 
 				//reset the global store
-				setStore({ demo: demo });
+				//setStore({ demo: demo });
 			}
 		}
 	};

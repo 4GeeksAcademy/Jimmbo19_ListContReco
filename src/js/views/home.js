@@ -1,15 +1,36 @@
-import React from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
-import "../../styles/home.css";
+import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 
-export const Home = () => (
-	<div className="text-center mt-5">
-		<h1>Hello Rigo!</h1>
-		<p>
-			<img src={rigoImage} />
-		</p>
-		<a href="#" className="btn btn-success">
-			If you see this green button, bootstrap is working
-		</a>
-	</div>
-);
+import { Context } from "../store/appContext";
+
+import "../../styles/demo.css";
+
+export const Home = () => {
+	const { store, actions } = useContext(Context);
+
+
+	return (
+		<div className="container">
+			
+			<ul className="list-group">
+				{store.contactos.map((item, index) => {
+					return (
+						<li
+							key={index}
+							className="list-group-item d-flex justify-content-between"
+							>
+							<p to={"/single/" + index}>
+								<span>contacto: {item.name}</span>
+								<span>numero: {item.phone}</span>
+							</p>
+							<button onClick={()=>actions.deletecontact(index)}>Eliminar</button>
+							
+						</li>
+					);
+				})}
+			</ul>
+			
+		</div>
+	);
+
+};
