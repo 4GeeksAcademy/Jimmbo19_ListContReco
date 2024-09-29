@@ -28,6 +28,9 @@ export const Home = () => {
 								
 								<span>numero: {item.phone}</span>
 							</p>
+							<Link to={`/modify/${item.id}`} >
+							<button>Modify</button>
+							</Link>
 							<button onClick={()=>actions.deletecontact(item.id)}>Eliminar</button>
 							
 						</li>
