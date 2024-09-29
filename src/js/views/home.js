@@ -29,11 +29,11 @@ export const Home = () => {
 							<div className="d-flex align-items-center">
 									
 										<img 
-											src="https://via.placeholder.com/50" 
+											src="https://www.uc3m.es/sdic/media/informatica/img/mediana/original/IM_Icono-Google-Contacts/logo-google-contacts-1.png" 
 											alt={`${item.name} profile`} 
 											className="rounded-circle me-3"
-											width="60"
-											height="60"
+											width="70"
+											height="70"
 										/>
 										<div>
 											<p className="mb-0 fw-bold">{item.name}</p>
@@ -46,7 +46,7 @@ export const Home = () => {
 							<Link to={`/modify/${item.id}`} className="btn btn-outline-primary me-2">
 								<i className="bi bi-pencil-fill me-1"></i> Modify
 							</Link>
-							<button type="button" className="btn-outline-danger " data-bs-toggle="modal" data-bs-target="#confDeletemodal"><i className="bi bi-person-x-fill"></i></button>
+							<button type="button" className="btn-outline-danger " data-bs-toggle="modal" data-bs-target="#confDeletemodal"><i className="bi bi-person-x-fill"></i>X</button>
 							</div>
 						
 						</li>
