@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 import { Context } from "../store/appContext";
 
@@ -9,6 +9,7 @@ export const Demo = () => {
 	const { store, actions } = useContext(Context);
 	const{id}=useParams();
 	const editContact=id !==undefined;
+	const navigate = useNavigate();
 
 	const[name, setName]= useState(" ");
 	const[email, setEmail]= useState(" ");
@@ -40,10 +41,7 @@ export const Demo = () => {
 			actions.addContacto(newcontact);
 		}
 
-		setName(" ");
-		setEmail(" ");
-		setPhone(" ");
-		setAddress(" ");
+		navigate("/");
 	};
 
 	return (
