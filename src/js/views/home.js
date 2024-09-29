@@ -21,9 +21,10 @@ export const Home = () => {
 							>
 							<p to={"/single/" + index}>
 								<span>contacto: {item.name}</span>
+								
 								<span>numero: {item.phone}</span>
 							</p>
-							<button onClick={()=>actions.deletecontact(index)}>Eliminar</button>
+							<button onClick={()=>actions.deletecontact(item.id)}>Eliminar</button>
 							
 						</li>
 					);

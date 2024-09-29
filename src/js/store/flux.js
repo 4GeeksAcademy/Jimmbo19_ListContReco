@@ -18,16 +18,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					"name": " ",
 					"phone": " ",
 					
-				},
-				{
-					"name": "  ",
-					"phone": " ",
-					
-				},
-				{
-					"name": " ",
-					"phone": " ",
-					
 				}
 			]
 		},
@@ -51,10 +41,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				
 			
 			},
-			 deletecontact: (indextodelete) => {
-				console.log('eliminar contacto' + indextodelete )
-				const store= getStore();
-				setStore({contactos: store.contactos.filter((contact,index)=>index !=indextodelete)})
+			 deletecontact: (idtodelete) => {
+				 console.log('eliminar contacto' + idtodelete )
+				 const store= getStore();
+				const requestOptions = {
+					method: "DELETE",
+					redirect: "follow"
+				  };
+				  
+				  fetch("https://playground.4geeks.com/contact/agendas/JaimeAgenda/contacts/"+ idtodelete, requestOptions)
+					.then((response) => response.text())
+					.then((result) => {
+						console.log(result);
+						
+					})
+					
+
+				//setStore({contactos: store.contactos.filter((contact,index)=> contact.id !=idtodelete)})
 			},
 
 			changeColor: (index, color) => {
