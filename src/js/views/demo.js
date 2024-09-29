@@ -10,35 +10,27 @@ export const Demo = () => {
 
 	return (
 		<div className="container">
-			
-			<ul className="list-group">
-				{store.contactos.map((item, index) => {
-					return (
-						<li
-							key={index}
-							className="list-group-item d-flex justify-content-between"
-							>
-							<Link to={"/single/" + index}>
-								<span>Link to: {item.name}</span>
-								<span>Link to: {item.phone}</span>
-							</Link>
-							{ 	
-							item.background === "orange" ? (
-								<p style={{ color: item.initial }}>
-									Check store/flux.js scroll to the actions to see the code
-								</p>
-							) : null}
-							<button className="btn btn-success" onClick={() => actions.changeColor(index, "orange")}>
-								Change Color
-							</button>
-						</li>
-					);
-				})}
-			</ul>
-			<br />
-			<Link to="/">
-				<button className="btn btn-primary">Back home</button>
-			</Link>
+			<h1>ADD a new contact</h1>
+				<div className="mb-3">
+					<label htmlFor="formGroupExampleInput" className="form-label">Name</label>
+					<input type="text" className="form-control" id="formGroupExampleInput" placeholder="Full name" />
+				</div>
+				<div className="mb-3">
+					<label htmlFor="formGroupExampleInput2" className="form-label">Email</label>
+					<input type="text" className="form-control" id="formGroupExampleInput2" placeholder="Enter email" />
+				</div>
+				<div className="mb-3">
+					<label htmlFor="formGroupExampleInput2" className="form-label">Phone</label>
+					<input type="text" className="form-control" id="formGroupExampleInput2" placeholder="Enter phone" />
+				</div>
+				<div className="mb-3">
+					<label htmlFor="formGroupExampleInput2" className="form-label">Address</label>
+					<input type="text" className="form-control" id="formGroupExampleInput2" placeholder="Enter Address" />
+				</div>
+				<button type="button" class="btn btn-primary">save</button>
+				<Link to="/" >
+				<button type="button" class="btn btn-link">Back contacts</button>
+				</Link>
 		</div>
 	);
 };

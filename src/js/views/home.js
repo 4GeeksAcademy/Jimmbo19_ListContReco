@@ -11,7 +11,11 @@ export const Home = () => {
 
 	return (
 		<div className="container">
-			
+			<div className="ml-auto">
+				<Link to="/demo">
+					<button className="btn btn-primary">Add Contact</button>
+				</Link>
+			</div>
 			<ul className="list-group">
 				{store.contactos.map((item, index) => {
 					return (
