@@ -46,7 +46,9 @@ export const Demo = () => {
 
 	return (
 		<div className="container">
-			<h1>{editContact?"Modify":"Add"} a  contact</h1>
+			<div className="text-center">
+				<h1>{editContact?"Modify":"Add"} a  contact</h1>
+			</div>
 				<div className="mb-3">
 					<label htmlFor="formGroupExampleInput" className="form-label">Name</label>
 					<input type="text" className="form-control" id="name" placeholder="Full name" value={name} onChange={(e)=> setName(e.target.value)} />
@@ -63,9 +65,13 @@ export const Demo = () => {
 					<label htmlFor="formGroupExampleInput2" className="form-label">Address</label>
 					<input type="text" className="form-control" id="address" placeholder="Enter Address" value={address} onChange={(e)=> setAddress(e.target.value)} />
 				</div>
-				<button onClick={holdcontactdata} type="button" class="btn btn-primary"  >{editContact ? "Update" : "Save"}</button>
+
+				<div className="d-grid gap-2">
+					<button onClick={holdcontactdata} type="button" class="btn btn-primary"  >{editContact ? "Update" : "Save"}</button>
+				</div>
+				
 				<Link to="/" >
-				<button  type="button" class="btn btn-link" >Back contacts</button>
+					<button  type="button" class="btn btn-link" >Back contacts</button>
 				</Link>
 		</div>
 	);
