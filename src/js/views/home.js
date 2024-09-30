@@ -43,10 +43,12 @@ export const Home = () => {
 										</div>
 									</div>
 							<div className="d-flex align-items-center">
-							<Link to={`/modify/${item.id}`} className="btn btn-outline-primary me-2">
-								<i className="bi bi-pencil-fill me-1"></i> Modify
+							<Link to={`/modify/${item.id}`} >
+								<button className="btn btn-primary me-2"> 
+								<i className="fa-solid fa-pen-to-square"></i>
+								</button>
 							</Link>
-							<button type="button" className="btn-outline-danger " data-bs-toggle="modal" data-bs-target="#confDeletemodal"><i className="bi bi-person-x-fill"></i>X</button>
+							<button type="button" className="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confDeletemodal"><i className="fa-solid fa-trash-can"></i></button>
 							</div>
 						
 						</li>
