@@ -25,6 +25,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(data.contacts);
 					setStore({contactos: data.contacts });
 				});},
+				
 			 deletecontact: (idtodelete) => {
 				 console.log('eliminar contacto' + idtodelete )
 				 const store= getStore();
@@ -33,7 +34,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						redirect: "follow"
 					};
 				  
-				  fetch("https://playground.4geeks.com/contact/agendas/JaimeAgenda/contacts/"+ idtodelete, requestOptions)
+				  fetch(`https://playground.4geeks.com/contact/agendas/JaimeAgenda/contacts/${idtodelete}`, requestOptions)
 					.then((response) => response.text())
 					.then((result) => {
 						console.log(result);
